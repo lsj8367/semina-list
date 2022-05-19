@@ -53,3 +53,10 @@ project(':api') {
         )
     }
 }
+
+project(':order') {
+    dependencies {
+        implementation project(':member')
+    }
+}
+
