@@ -1,0 +1,55 @@
+buildscript {
+    ext {
+        springBootVersion = '2.6.8'
+    }
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
+        classpath 'io.spring.gradle:dependency-management-plugin:1.0.11.RELEASE'
+    }
+}
+
+subprojects {
+    group 'io.github.lsj8367'
+    version '1.0'
+
+    apply plugin: 'java'
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.spring.dependency-management'
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        implementation (
+                'org.springframework.boot:spring-boot-starter-data-jpa',
+                'com.h2database:h2',
+                'org.projectlombok:lombok'
+        )
+
+        annotationProcessor (
+                'org.projectlombok:lombok'
+        )
+
+        testImplementation(
+                'org.springframework.boot:spring-boot-starter-test'
+        )
+    }
+
+    test {
+        useJUnitPlatform()
+    }
+}
+
+project(':api') {
+    dependencies {
+        implementation (
+                project(':member'),
+                project(':order')
+        )
+    }
+}
