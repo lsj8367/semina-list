@@ -1,5 +1,3 @@
 rootProject.name = 'ddd-example'
 
-include 'member', 'order'
-include 'api'
-
+include 'member', 'order', 'api'

@@ -4,14 +4,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Getter
 @Entity
 @NoArgsConstructor
-@AllArgsConstructor
 public class Member {
 
     @Id
@@ -21,5 +19,10 @@ public class Member {
     private String name;
 
     private String email;
+
+    public Member(final String name, final String email) {
+        this.name = name;
+        this.email = email;
+    }
 
 }
