@@ -34,9 +34,9 @@ class MemberReaderTest {
 
         public MemoryMemberReader() {
             this.map = Map.of(
-                1L, new Member(1L, "name", "email"),
-                2L, new Member(2L, "name2", "email2"),
-                3L, new Member(3L, "name3", "email3")
+                1L, new Member("name", "email"),
+                2L, new Member("name2", "email2"),
+                3L, new Member("name3", "email3")
             );
         }
 
